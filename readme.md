@@ -54,3 +54,9 @@ export default function Page2() {
 ```
 yarn add axios
 ```
+
+## Icons
+
+```
+yarn add react-native-vector-icons
+```
