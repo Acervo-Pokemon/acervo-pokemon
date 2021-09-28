@@ -46,3 +46,11 @@ export default function Page2() {
     )
 }
 ```
+
+---
+
+## Axios
+
+```
+yarn add axios
+```
