@@ -2,7 +2,7 @@ import api from './api'
 
 const endpoint = '/pokemon'
 
-export async function getPaged(limit=10, offset=0) {
+export async function getPaged(limit = 6, offset = 0) {
   try {
     const response = await api.get(`${endpoint}/?limit=${limit}&offset=${offset}`)
     return response.data
@@ -11,11 +11,11 @@ export async function getPaged(limit=10, offset=0) {
   }
 }
 
-export async function navigate(url){
+export async function navigate(url) {
   try {
     const response = await api.get(url)
     return response.data
-  }catch (error) {
+  } catch (error) {
     throw error
   }
 }

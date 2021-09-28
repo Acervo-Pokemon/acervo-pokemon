@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { View, FlatList, Button, Alert } from 'react-native'
-import Item from '../../components/Item'
+import { View, Button, Alert } from 'react-native'
+import FlatListPokemon from '../../components/FlatListPokemon/FlatListPokemon'
 import { getFirstPage, navigateTo } from '../../control/pokemonControl'
+import style from './stylesSandbox'
 
 export default function Sandbox() {
 
@@ -39,13 +40,12 @@ export default function Sandbox() {
 
   return (
     <View>
-      <Button title="Listar" onPress={handleFirst}></Button>
-      <Button title="Anterior" onPress={() => (init) ? handleFirst() : handlePreviousNext(previous)}></Button>
-      <Button title="Próxima" onPress={() => (init) ? handleFirst() : handlePreviousNext(next)}></Button>
-      <FlatList
-        data={(list)} keyExtractor={(item) => item.name}
-        renderItem={({ item }) => <Item data={item} />}
-      />
+      <View style={style.row}>
+        <Button title="Anterior" onPress={() => (init) ? handleFirst() : handlePreviousNext(previous)}></Button>
+        <Button title="Listar" onPress={handleFirst}></Button>
+        <Button title="Próxima" onPress={() => (init) ? handleFirst() : handlePreviousNext(next)}></Button>
+      </View>
+      <FlatListPokemon list={list} />
     </View>
   )
 }
