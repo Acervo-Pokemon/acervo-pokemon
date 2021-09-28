@@ -28,12 +28,10 @@
 ### Tela de Detalhe, detalhes do pokémon (permitir favoritar o mesmo)
 ##### • Deverá conter: (nome, altura, peso, habilidades, tipos, foto e estatísticas)
 ##### • Vejam as seguintes propriedades:
-###### name
-###### height
-###### weight
+###### name, height, weight
 ###### [Abilities] -> listar ability (name)
 ###### [Types] -> listar type (name)
-###### [Sprites] //IMAGEM EM SVG
+###### [Sprites] //IMAGEM EM SVG ou PNG
 ######  "other": {
 ######  "dream_world": {
 ######  "front_default":
