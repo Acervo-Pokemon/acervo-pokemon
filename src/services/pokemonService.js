@@ -6,8 +6,16 @@ export async function getPaged(limit=10, offset=0) {
   try {
     const response = await api.get(`${endpoint}/?limit=${limit}&offset=${offset}`)
     return response.data
-
   } catch (error) {
-    console.log('Erro ao listar: ' + error)
+    throw error
+  }
+}
+
+export async function navigate(url){
+  try {
+    const response = await api.get(url)
+    return response.data
+  }catch (error) {
+    throw error
   }
 }
