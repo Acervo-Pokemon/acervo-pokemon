@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "acervo-pokemon",
+    "slug": "acervo-pokemon",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "acervo-pokemon"
+}
