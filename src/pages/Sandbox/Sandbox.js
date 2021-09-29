@@ -13,7 +13,7 @@ export default function Sandbox() {
 
   async function handleFirst() {
     try {
-      const response = await getFirstPage()
+      const response = await getFirstPage(6)
       setPrevious(response.previous)
       setNext(response.next)
       setList(response.results)

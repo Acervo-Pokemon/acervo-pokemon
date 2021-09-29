@@ -1,9 +1,9 @@
 // fofoqueira (e.e)
 import { getPaged, navigate, details } from '../services/pokemonService'
 
-export async function getFirstPage() {
+export async function getFirstPage(limit) {
   try {
-    return await getPaged()
+    return await getPaged(limit)
   } catch (error) {
     throw error
   }
