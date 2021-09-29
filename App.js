@@ -8,33 +8,32 @@ import styles from "./src/assets/css/styles";
 import BtnTopLeft from "./src/components/Btn/BtnTopLeft";
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { TouchableOpacity } from "react-native-gesture-handler";
+import Favorites from "./src/pages/Favorites";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        {/* <Stack.Screen
-          name="Home"
-          component={Home}
-          options={({ navigation }) => ({
-            headerShown: false,
-            headerStyle: {
-              backgroundColor: "#22368E",
-            },
-            headerTintColor: "#FFEC14",
-            headerRight: () => (
-              <TouchableOpacity onPress={null}>
-                <Icon name='star' size={35} color= "#FFEC14"/>
-              </TouchableOpacity>
-            ),
-          })}
-        /> */}
         <Stack.Screen
           name="Home"
           component={Home}
           options={({ navigation }) => ({
             headerShown: false          
+          })}
+        />
+         <Stack.Screen
+          name="Favorites"
+          component={Favorites}
+          options={({ navigation }) => ({
+            title: "Favoritos",
+            headerStyle: {
+              backgroundColor: "#22368E",
+            },
+            headerTintColor: "#FFEC14",
+            headerLeft: () => (
+              <BtnTopLeft color="#FFEC14" exit={false} onPress={()=> navigation.navigate('Home')} />
+            ),
           })}
         />
         <Stack.Screen

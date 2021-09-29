@@ -6,12 +6,15 @@ import Header from "../../components/template/Header";
 import { getFirstPage, navigateTo } from "../../control/pokemonControl";
 import style from "./stylesHome";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { StatusBar } from "expo-status-bar";
+import { useNavigation } from "@react-navigation/native";
 export default function Home() {
   const [list, setList] = useState([]);
   const [previous, setPrevious] = useState();
   const [next, setNext] = useState();
   const [init, setInit] = useState(true);
   const [search, setSearch] = useState("");
+  const navigation = useNavigation();
 
   useEffect(() => {
     handleFirst();
@@ -47,7 +50,8 @@ export default function Home() {
 
   return (
     <View>
-      <Header />
+      <StatusBar hidden/>
+      <Header onPress={()=> {navigation.navigate('Favorites')}}/>
       <View style={{}}>
         <View style={style.row}>
           <TextInput
