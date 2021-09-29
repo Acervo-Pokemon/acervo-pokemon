@@ -1,5 +1,14 @@
 import { StyleSheet } from "react-native";
 
+
+const button = StyleSheet.create({
+  default: {
+    backgroundColor: "#22368E",
+    justifyContent: "center",
+    alignItems: "center",
+  }
+})
+
 const style = StyleSheet.create({
   row: {
     flexDirection: "row",
@@ -17,6 +26,22 @@ const style = StyleSheet.create({
     fontSize: 18,
     width: "65%",
   },
+  buttonSearchClear:{
+    ...button.default,
+    width: 55,
+  },
+  buttonPreviousNext:{
+    ...button.default,
+    width: 50,
+    height: 50,
+  }, 
+  buttonPreviousNextDisabled:{
+    ...button.default,
+    width: 50,
+    height: 50,
+    backgroundColor: 'grey'
+  }
 });
+
 
 export default style;

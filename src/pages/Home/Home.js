@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { View, Button, Alert, Text, TouchableOpacity } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import FlatListPokemon from "../../components/FlatListPokemon/FlatListPokemon";
+import Header from "../../components/template/Header";
 import { getFirstPage, navigateTo } from "../../control/pokemonControl";
 import style from "./stylesHome";
-
+import Icon from "react-native-vector-icons/FontAwesome";
 export default function Home() {
   const [list, setList] = useState([]);
   const [previous, setPrevious] = useState();
@@ -46,7 +47,8 @@ export default function Home() {
 
   return (
     <View>
-      <View style={{ paddingTop: 30 }}>
+      <Header />
+      <View style={{}}>
         <View style={style.row}>
           <TextInput
             style={style.inputPesquisar}
@@ -55,29 +57,39 @@ export default function Home() {
             onChangeText={setSearch}
             value={search}
           />
-          <Button title="####" color="#22368E" />
-          <Button title="####" color="#22368E" onPress={handleFirst} />
+          <TouchableOpacity style={style.buttonSearchClear} >
+            <Icon name="search" size={25} color="white" />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={style.buttonSearchClear}
+            onPress={handleFirst}
+          >
+            <Icon name="repeat" size={25} color="white" />
+          </TouchableOpacity>
         </View>
       </View>
 
-      <View style={{ paddingTop: 30 }}>
+      <View style={{ paddingTop: 15 }}>
         <FlatListPokemon list={list} />
       </View>
 
-      <View style={{ paddingTop: 30 }}>
+      <View style={{ paddingTop: 15 }}>
         <View style={style.row}>
-          <Button
-            color="#22368E"
-            title="Anterior"
+          <TouchableOpacity
             onPress={() =>
               init ? handleFirst() : handlePreviousNext(previous)
             }
-          />
-          <Button
-            color="#22368E"
-            title="Próxima"
-            onPress={() => (init ? handleFirst() : handlePreviousNext(next))}
-          />
+            disabled={previous === null}
+            style={(previous === null)? style.buttonPreviousNextDisabled: style.buttonPreviousNext} >
+            <Icon name="chevron-left" size={25} color="white" />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => (init ? handleFirst() : handlePreviousNext(next))}          
+            disabled={next === null}  
+            style={(next === null)? style.buttonPreviousNextDisabled: style.buttonPreviousNext}
+          >
+            <Icon name="chevron-right" size={25} color="white" />
+          </TouchableOpacity>
         </View>
       </View>
     </View>
