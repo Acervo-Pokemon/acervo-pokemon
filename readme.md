@@ -65,3 +65,11 @@ yarn add axios
 ```
 yarn add react-native-vector-icons
 ```
+
+## ScreenOrientation
+
+```
+expo install expo-screen-orientation
+```
+
+Fonte: [https://docs.expo.dev/versions/latest/sdk/screen-orientation/](https://docs.expo.dev/versions/latest/sdk/screen-orientation/)
