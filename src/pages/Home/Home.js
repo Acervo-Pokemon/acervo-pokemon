@@ -120,35 +120,37 @@ export default function Home() {
       <View style={style.feedbackSearch}>
         <Text style={style.feedbackSearch}>{statusSearch}</Text>
       </View>
-
-      <View style={{ paddingTop: 15 }}>
-        <View style={style.row}>
-          <TouchableOpacity
-            onPress={() =>
-              init ? handleFirst() : handlePreviousNext(previous)
-            }
-            disabled={checkDisabled()}
-            style={
-              checkDisabled()
-                ? style.buttonPreviousNextDisabled
-                : style.buttonPreviousNext
-            }
-          >
-            <Icon name="chevron-left" size={25} color="white" />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => (init ? handleFirst() : handlePreviousNext(next))}
-            disabled={checkDisabled()}
-            style={
-              checkDisabled()
-                ? style.buttonPreviousNextDisabled
-                : style.buttonPreviousNext
-            }
-          >
-            <Icon name="chevron-right" size={25} color="white" />
-          </TouchableOpacity>
+      {
+        list.length > 0 &&
+        <View style={{ paddingTop: 15 }}>
+          <View style={style.row}>
+            <TouchableOpacity
+              onPress={() =>
+                init ? handleFirst() : handlePreviousNext(previous)
+              }
+              disabled={checkDisabled()}
+              style={
+                checkDisabled()
+                  ? style.buttonPreviousNextDisabled
+                  : style.buttonPreviousNext
+              }
+            >
+              <Icon name="chevron-left" size={25} color="white" />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => (init ? handleFirst() : handlePreviousNext(next))}
+              disabled={checkDisabled()}
+              style={
+                checkDisabled()
+                  ? style.buttonPreviousNextDisabled
+                  : style.buttonPreviousNext
+              }
+            >
+              <Icon name="chevron-right" size={25} color="white" />
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
+      }
     </View>
   );
 }
