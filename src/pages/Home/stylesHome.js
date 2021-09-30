@@ -1,13 +1,12 @@
 import { StyleSheet } from "react-native";
 
-
 const button = StyleSheet.create({
   default: {
     backgroundColor: "#22368E",
     justifyContent: "center",
     alignItems: "center",
-  }
-})
+  },
+});
 
 const style = StyleSheet.create({
   row: {
@@ -26,22 +25,31 @@ const style = StyleSheet.create({
     fontSize: 18,
     width: "65%",
   },
-  buttonSearchClear:{
+  buttonSearchClear: {
     ...button.default,
     width: 55,
   },
-  buttonPreviousNext:{
+  buttonSearchClearDisabled: {
+    ...button.default,
+    width: 55,
+    backgroundColor: "grey",
+  },
+  buttonPreviousNext: {
     ...button.default,
     width: 50,
     height: 50,
-  }, 
-  buttonPreviousNextDisabled:{
+  },
+  buttonPreviousNextDisabled: {
     ...button.default,
     width: 50,
     height: 50,
-    backgroundColor: 'grey'
-  }
+    backgroundColor: "grey",
+  },
+  feedbackSearch: {
+    alignItems: "center",
+    fontSize: 16,
+    color: "#22368E",
+  },
 });
-
 
 export default style;

@@ -19,3 +19,12 @@ export async function navigate(url) {
     throw error
   }
 }
+
+export async function getName(name) {
+  try {
+    const response = await api.get(`${endpoint}/${name}`)
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}
