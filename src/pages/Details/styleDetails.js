@@ -15,7 +15,7 @@ const style = StyleSheet.create({
     textoViewer:{
       textAlign: 'center',
       justifyContent : 'center',
-      color: 'white'
+      color: '#14279B'
     }
 
 })
