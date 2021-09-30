@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 // pages
 import Home from './src/pages/Home/Home'
-import Favorites from './src/pages/Favorites'
+import Favorites from './src/pages/Favorites/Favorites'
 import Sandbox from './src/pages/Sandbox/Sandbox'
 import Details from './src/pages/Details/Details'
 

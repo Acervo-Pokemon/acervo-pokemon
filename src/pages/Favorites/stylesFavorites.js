@@ -10,6 +10,15 @@ const button = StyleSheet.create({
 })
 
 const style = StyleSheet.create({
+  base: {
+    flex: 1,
+    backgroundColor: 'white'
+  },
+  content: {
+    paddingTop: 15
+  },
+
+
   row: {
     flexDirection: "row",
     justifyContent: "space-around",
