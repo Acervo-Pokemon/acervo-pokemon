@@ -8,6 +8,7 @@ import style from "./stylesHome";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { StatusBar } from "expo-status-bar";
 import { useNavigation } from "@react-navigation/native";
+
 export default function Home() {
   const [list, setList] = useState([]);
   const [previous, setPrevious] = useState();
@@ -49,7 +50,7 @@ export default function Home() {
   }
 
   return (
-    <View>
+    <View style={style.base}>
       <StatusBar hidden/>
       <Header onPress={()=> {navigation.navigate('Favorites')}}/>
       <View style={{}}>
@@ -77,7 +78,7 @@ export default function Home() {
         <FlatListPokemon list={list} />
       </View>
 
-      <View style={{ paddingTop: 15 }}>
+      <View style={style.content}>
         <View style={style.row}>
           <TouchableOpacity
             onPress={() =>
