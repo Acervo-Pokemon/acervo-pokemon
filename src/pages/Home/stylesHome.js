@@ -7,6 +7,7 @@ const style = StyleSheet.create({
     backgroundColor: 'white'
   },
   content: {
+    height: 400,
     paddingTop: 15
   },
   buttonEnabled: {

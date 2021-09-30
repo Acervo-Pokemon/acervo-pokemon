@@ -72,17 +72,18 @@ export default function Home() {
       {
         list.length > 0 &&
         <View style={style.content}>
-          <FlatListPokemon list={list} />
-
-          <NavigationBar
-            previous={previous} setPrevious={setPrevious}
-            next={next} setNext={setNext}
-            list={list} setList={setList}
-            search={search}
-            listLenght={list.length}
-            handleFirst={handleFirst}
-            init={init}
-          />
+          <View>
+            <FlatListPokemon list={list} />
+            <NavigationBar
+              previous={previous} setPrevious={setPrevious}
+              next={next} setNext={setNext}
+              list={list} setList={setList}
+              search={search}
+              listLenght={list.length}
+              handleFirst={handleFirst}
+              init={init}
+            />
+          </View>
         </View>
       }
     </View>
