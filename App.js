@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Home from './src/pages/Home/Home'
 import Favorites from './src/pages/Favorites'
 import Sandbox from './src/pages/Sandbox/Sandbox'
+import Details from './src/pages/Details/Details'
 
 // components
 import BtnTopLeft from './src/components/Btn/BtnTopLeft'
@@ -39,6 +40,21 @@ export default function App() {
             ),
           })}
         />
+        <Stack.Screen
+          name='Details'
+          component={Details}
+          options={({ navigation }) => ({
+            title: 'Detalhes',
+            headerStyle: {
+              backgroundColor: '#22368E',
+            },
+            headerTintColor: '#FFEC14',
+            headerLeft: () => (
+              <BtnTopLeft color='#FFEC14' exit={false} onPress={() => navigation.navigate('Home')} />
+            ),
+          })}
+        />
+
         <Stack.Screen
           name='Sandbox'
           component={Sandbox}
