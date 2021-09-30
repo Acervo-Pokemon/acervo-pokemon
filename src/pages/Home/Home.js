@@ -13,6 +13,9 @@ import NavigationBar from '../../components/NavigationBar/NavigationBar'
 // control
 import { getFirstPage } from '../../control/pokemonControl'
 
+// const
+import { limit } from '../../assets/const/const'
+
 // styles
 import style from './stylesHome'
 
@@ -32,7 +35,7 @@ export default function Home() {
 
   async function handleFirst() {
     try {
-      const response = await getFirstPage(4)
+      const response = await getFirstPage(limit)
       setPrevious(response.previous)
       setNext(response.next)
       setList(response.results)
