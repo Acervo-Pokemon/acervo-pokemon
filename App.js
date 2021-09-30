@@ -1,7 +1,8 @@
 // react, react-native
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import * as ScreenOrientation from 'expo-screen-orientation'
 
 // pages
 import Home from './src/pages/Home/Home'
@@ -18,6 +19,14 @@ import { colors } from './src/assets/css/styles'
 const Stack = createNativeStackNavigator()
 
 export default function App() {
+  
+  useEffect(() => {
+    async function changeScreenOrientation() {
+      await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
+    }
+    changeScreenOrientation()
+  })
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Home'>
