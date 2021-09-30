@@ -3,7 +3,11 @@ import { View, Button, Alert, Text, TouchableOpacity } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import FlatListPokemon from "../../components/FlatListPokemon/FlatListPokemon";
 import Header from "../../components/template/Header";
-import { getFirstPage, navigateTo } from "../../control/pokemonControl";
+import {
+  getByName,
+  getFirstPage,
+  navigateTo,
+} from "../../control/pokemonControl";
 import style from "./stylesHome";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { StatusBar } from "expo-status-bar";
@@ -14,6 +18,7 @@ export default function Home() {
   const [next, setNext] = useState();
   const [init, setInit] = useState(true);
   const [search, setSearch] = useState("");
+  const [statusSearch, setStatusSearch] = useState("");
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -28,6 +33,7 @@ export default function Home() {
       setList(response.results);
       setInit(false);
       setSearch("");
+      setStatusSearch("");
     } catch (error) {
       Alert.alert("Error on getFirstPage: " + error);
     }
@@ -48,10 +54,34 @@ export default function Home() {
     }
   }
 
+  async function handleName() {
+    try {
+      const response = await getByName(search);
+      setList(response.forms);
+      setInit(false);
+      setStatusSearch("");
+    } catch (error) {
+      if (error.toString().includes("code 404")) {
+        setList([]);
+        setStatusSearch("Nenhum pokémon encontrado com esse nome");
+      } else {
+        Alert.alert("Error on getFirstPage: " + error);
+      }
+    }
+  }
+
+  function checkDisabled() {
+    return next === null || (search !== "" && list.length <= 1);
+  }
+
   return (
     <View>
-      <StatusBar hidden/>
-      <Header onPress={()=> {navigation.navigate('Favorites')}}/>
+      <StatusBar hidden />
+      <Header
+        onPress={() => {
+          navigation.navigate("Favorites");
+        }}
+      />
       <View style={{}}>
         <View style={style.row}>
           <TextInput
@@ -61,7 +91,16 @@ export default function Home() {
             onChangeText={setSearch}
             value={search}
           />
-          <TouchableOpacity style={style.buttonSearchClear} >
+          <TouchableOpacity
+            style={style.buttonSearchClear}
+            onPress={handleName}
+            disabled={search === ""}
+            style={
+              search === ""
+                ? style.buttonSearchClearDisabled
+                : style.buttonSearchClear
+            }
+          >
             <Icon name="search" size={25} color="white" />
           </TouchableOpacity>
           <TouchableOpacity
@@ -77,20 +116,33 @@ export default function Home() {
         <FlatListPokemon list={list} />
       </View>
 
+      <View style={style.feedbackSearch}>
+        <Text style={style.feedbackSearch}>{statusSearch}</Text>
+      </View>
+
       <View style={{ paddingTop: 15 }}>
         <View style={style.row}>
           <TouchableOpacity
             onPress={() =>
               init ? handleFirst() : handlePreviousNext(previous)
             }
-            disabled={previous === null}
-            style={(previous === null)? style.buttonPreviousNextDisabled: style.buttonPreviousNext} >
+            disabled={checkDisabled()}
+            style={
+              checkDisabled()
+                ? style.buttonPreviousNextDisabled
+                : style.buttonPreviousNext
+            }
+          >
             <Icon name="chevron-left" size={25} color="white" />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => (init ? handleFirst() : handlePreviousNext(next))}          
-            disabled={next === null}  
-            style={(next === null)? style.buttonPreviousNextDisabled: style.buttonPreviousNext}
+            onPress={() => (init ? handleFirst() : handlePreviousNext(next))}
+            disabled={checkDisabled()}
+            style={
+              checkDisabled()
+                ? style.buttonPreviousNextDisabled
+                : style.buttonPreviousNext
+            }
           >
             <Icon name="chevron-right" size={25} color="white" />
           </TouchableOpacity>

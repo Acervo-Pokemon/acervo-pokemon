@@ -1,5 +1,5 @@
 // fofoqueira (e.e)
-import { getPaged, navigate, details } from '../services/pokemonService'
+import { getPaged, navigate, details, getName } from '../services/pokemonService'
 
 export async function getFirstPage(limit) {
   try {
@@ -27,4 +27,13 @@ export async function getDetails(url) {
 
 export function capitalize(name) {
   return name.charAt(0).toUpperCase() + name.slice(1)
+}
+
+export async function getByName(name) {
+  try {
+    const nameFormat = name.toString().trim().toLowerCase();
+    return await getName(nameFormat)
+  } catch (error) {
+    throw error
+  }
 }
