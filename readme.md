@@ -68,8 +68,45 @@ yarn add react-native-vector-icons
 
 ## ScreenOrientation
 
+Fonte: [https://docs.expo.dev/versions/latest/sdk/screen-orientation/](https://docs.expo.dev/versions/latest/sdk/screen-orientation/)
+
 ```
 expo install expo-screen-orientation
 ```
 
-Fonte: [https://docs.expo.dev/versions/latest/sdk/screen-orientation/](https://docs.expo.dev/versions/latest/sdk/screen-orientation/)
+Para iniciar na orientação PORTRAIT, incluir ```"orientation": "portrait"``` em app.json
+
+```
+{
+  "expo": {
+    "name": "acervo-pokemon",
+    "slug": "acervo-pokemon",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "orientation": "portrait"
+  },
+  "name": "acervo-pokemon"
+}
+
+```
+
+Para bloquear a orientação em PORTRAIT, em App.js incluir
+
+
+```
+import * as ScreenOrientation from 'expo-screen-orientation'
+
+export default function App() {
+  
+  useEffect(() => {
+    async function changeScreenOrientation() {
+      await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
+    }
+    changeScreenOrientation()
+  })
+}
+```
+
+
