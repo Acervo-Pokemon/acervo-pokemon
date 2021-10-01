@@ -1,9 +1,10 @@
 import React from 'react'
-import {  StyleSheet, Button, View, SafeAreaView, Text, Alert, TextInput } from 'react-native'
+import { StyleSheet, Button, View, SafeAreaView, Text, Alert, TextInput } from 'react-native'
 import style from './styleDetails'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { DataTable } from 'react-native-paper';
+import Svg, { Image } from 'react-native-svg';
 
 
 export default function Details() {
@@ -11,27 +12,26 @@ export default function Details() {
   return (
     <View style={ style.boxDetails }>
       <View style={ style.containerTop }>
-
         <View style={ style.dtContainer }>
           <DataTable>
             <DataTable.Row style={ style.dtRow }>
-              <DataTable.Cell color style={style.dtCellLabel}>Hp : </DataTable.Cell>
-              <DataTable.Cell style={style.dtCellData}>999</DataTable.Cell>
-            </DataTable.Row>
-            
-            <DataTable.Row>
-              <DataTable.Cell style={style.dtCellLabel}>Attack : </DataTable.Cell>
-              <DataTable.Cell style={style.dtCellData}>999</DataTable.Cell>
+              <DataTable.Cell color style={ style.dtCellLabel }><Text style={ style.dtText } >Hp : </Text></DataTable.Cell>
+              <DataTable.Cell style={ style.dtCellData }>999</DataTable.Cell>
             </DataTable.Row>
 
-            <DataTable.Row>
-              <DataTable.Cell style={style.dtCellLabel}>Defense : </DataTable.Cell>
-              <DataTable.Cell style={style.dtCellData}>999</DataTable.Cell>
+            <DataTable.Row style={ style.dtRow }>
+              <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtText } >Attack : </Text></DataTable.Cell>
+              <DataTable.Cell style={ style.dtCellData }>999</DataTable.Cell>
             </DataTable.Row>
-            
-            <DataTable.Row>
-              <DataTable.Cell style={style.dtCellLabel}>Speed : </DataTable.Cell>
-              <DataTable.Cell style={style.dtCellData}>999</DataTable.Cell>
+
+            <DataTable.Row style={ style.dtRow }>
+              <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtText } >Defence : </Text></DataTable.Cell>
+              <DataTable.Cell style={ style.dtCellData }>999</DataTable.Cell>
+            </DataTable.Row>
+
+            <DataTable.Row style={ style.dtRow }>
+              <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtText } >Speed : </Text> </DataTable.Cell>
+              <DataTable.Cell style={ style.dtCellData }>999</DataTable.Cell>
             </DataTable.Row>
           </DataTable>
         </View>
@@ -46,37 +46,35 @@ export default function Details() {
 
       <View style={ style.photoPokemonView }>
         {/* imagem pokemon */ }
-        <Text>imagem</Text>
-        <View style={{flex: 1, flexDirection: 'column'}}>
-          <View style={{width : 50, height : 50, backgroundColor: 'skyblue'}}> </View>
-        </View>
+       
+
       </View>
       {/* dados do pokemon */ }
       <View style={ style.containerTop2 }>
-      <View style={ style.dtContainer }>
-          <DataTable>
+        <View style={ style.dtContainer }>
+          <DataTable >
             <DataTable.Row style={ style.dtRow }>
-              <DataTable.Cell color style={style.dtCellLabel}>Nome : </DataTable.Cell>
-              <DataTable.Cell style={style.dtCellData}>999</DataTable.Cell>
-            </DataTable.Row>
-            
-            <DataTable.Row>
-              <DataTable.Cell style={style.dtCellLabel}>Peso : </DataTable.Cell>
-              <DataTable.Cell style={style.dtCellData}>999</DataTable.Cell>
+              <DataTable.Cell color style={ style.dtCellLabel }> <Text style={ style.dtText } >Nome : </Text></DataTable.Cell>
+              <DataTable.Cell style={ style.dtCellData }>999</DataTable.Cell>
             </DataTable.Row>
 
-            <DataTable.Row>
-              <DataTable.Cell style={style.dtCellLabel}>Altura : </DataTable.Cell>
-              <DataTable.Cell style={style.dtCellData}>999</DataTable.Cell>
+            <DataTable.Row style={ style.dtRow }>
+              <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtText } >Peso : </Text></DataTable.Cell>
+              <DataTable.Cell style={ style.dtCellData }>999</DataTable.Cell>
             </DataTable.Row>
-            
-            <DataTable.Row>
-              <DataTable.Cell style={style.dtCellLabel}>Tipo : </DataTable.Cell>
-              <DataTable.Cell style={style.dtCellData}>999</DataTable.Cell>
+
+            <DataTable.Row style={ style.dtRow }>
+              <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtText } >Altura : </Text></DataTable.Cell>
+              <DataTable.Cell style={ style.dtCellData }>999</DataTable.Cell>
+            </DataTable.Row>
+
+            <DataTable.Row style={ style.dtRow }>
+              <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtText } >Tipo : </Text> </DataTable.Cell>
+              <DataTable.Cell style={ style.dtCellData }>999</DataTable.Cell>
             </DataTable.Row>
           </DataTable>
         </View>
-    </View>
+      </View>
     </View>
 
     /*

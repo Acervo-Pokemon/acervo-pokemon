@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 
 
-const style = StyleSheet.create({
+const style = StyleSheet.create( {
   centerScreen: {
     flex: 1,
     textAlign: 'center',
@@ -16,8 +16,15 @@ const style = StyleSheet.create({
   },
 
   dtRow: {
-    border: 'none'
+    border: 'none',
+    textAlign: 'right',
+    fontWeight: 'bold',
 
+  },
+
+  dtText:{
+    textAlign: 'right',
+    fontWeight: 'bold',
   },
 
   dtCell: {
@@ -80,8 +87,10 @@ const style = StyleSheet.create({
   },
 
   photoPokemonView: {
-    flex: 3,
-    /* backgroundColor: 'skyblue' */
+    borderRadius: 8,
+    width: 300,
+    height: 200,
+    backgroundColor: 'skyblue'
   },
 
   characteristicsView: {
@@ -100,5 +109,5 @@ const style = StyleSheet.create({
   }
 
 
-})
+} )
 export default style
