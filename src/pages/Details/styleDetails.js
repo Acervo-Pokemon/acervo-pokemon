@@ -16,7 +16,31 @@ const style = StyleSheet.create({
       textAlign: 'center',
       justifyContent : 'center',
       color: '#14279B'
+    },
+
+    boxDetails:{
+      flex: 1,
+      borderRadius: '5px',
+      borderColor: '#000000',
+      
+    },
+
+    statisticView: {
+      flex: 2, 
+      backgroundColor: 'steelblue'
+    },
+
+    photoPokemonView:{
+      flex: 3,
+      backgroundColor: 'skyblue'
+    },
+
+    characteristicsView:{
+      flex: 3,
+      backgroundColor: 'steelblue',
+      
     }
+    
 
 })
 export default style

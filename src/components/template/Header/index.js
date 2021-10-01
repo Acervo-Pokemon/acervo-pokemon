@@ -8,9 +8,11 @@ export default ({onPress}) => {
     return (
         <View style={{ padding: 15, flexDirection: 'row', justifyContent: 'space-between'}}>
             <Image style={{width: 206,height:75}} source={logo} />
-            <TouchableOpacity onPress={onPress} style={{borderRadius:10 ,width:50, height:50, backgroundColor:"#22368E", justifyContent: 'center',alignItems: 'center'}} >
+            <View>
+                <TouchableOpacity onPress={onPress} style={{borderRadius:10 ,width:50, height:50, backgroundColor:"#22368E", justifyContent: 'center',alignItems: 'center'}} >
                 <Icon color= "#FFEC14" size={35} name='star' />
             </TouchableOpacity>
+            </View>
         </View>
     )
 
