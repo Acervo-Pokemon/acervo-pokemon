@@ -14,24 +14,37 @@ export default function Details() {
       <View style={ style.containerTop }>
         <View style={ style.dtContainer }>
           <DataTable>
+
             <DataTable.Row style={ style.dtRow }>
-              <DataTable.Cell color style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Hp : </Text></DataTable.Cell>
-              <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth}>999</Text></DataTable.Cell>
+              <DataTable.Cell style={ style.epacoCell }>
+                <DataTable.Cell color style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Hp : </Text></DataTable.Cell>
+                <Text >  </Text>
+                <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth }>  999</Text></DataTable.Cell>
+              </DataTable.Cell>
             </DataTable.Row>
 
             <DataTable.Row style={ style.dtRow }>
-              <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Attack : </Text></DataTable.Cell>
-              <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth}>999</Text></DataTable.Cell>
+              <DataTable.Cell style={ style.epacoCell }>
+                <DataTable.Cell color style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Attack : </Text></DataTable.Cell>
+                <Text >  </Text>
+                <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth }>  999</Text></DataTable.Cell>
+              </DataTable.Cell>
             </DataTable.Row>
 
             <DataTable.Row style={ style.dtRow }>
-              <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Defence : </Text></DataTable.Cell>
-              <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth}>999</Text></DataTable.Cell>
+              <DataTable.Cell style={ style.epacoCell }>
+                <DataTable.Cell color style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Defence : </Text></DataTable.Cell>
+                <Text >  </Text>
+                <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth }>  999</Text></DataTable.Cell>
+              </DataTable.Cell>
             </DataTable.Row>
 
             <DataTable.Row style={ style.dtRow }>
-              <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Speed : </Text> </DataTable.Cell>
-              <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth}>999</Text></DataTable.Cell>
+              <DataTable.Cell style={ style.epacoCell }>
+                <DataTable.Cell color style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Speed : </Text></DataTable.Cell>
+                <Text >  </Text>
+                <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth }>  999</Text></DataTable.Cell>
+              </DataTable.Cell>
             </DataTable.Row>
           </DataTable>
         </View>
@@ -44,62 +57,67 @@ export default function Details() {
         </View>
       </View>
 
-      
-         <View tyle={ style.centerScreen }>
-        {/* imagem pokemon */ }
-       <View style={ style.centerScreen }>
-          <Image
-        source={{
-          flex: 1,
-          uri: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/7.svg',
-          width: 205,
-          height: 205,
-          margin: 20,
-          display: 'flex',
 
-        }}
-      />
-       </View>
-       
+      <View tyle={ style.centerScreen }>
+        {/* imagem pokemon */ }
+        <View style={ style.centerScreen }>
+          <Image
+            source={ {
+              flex: 1,
+              uri: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/7.svg',
+              width: 205,
+              height: 205,
+              margin: 20,
+              display: 'flex',
+
+            } }
+          />
+        </View>
+
       </View>
-    
-     
+
+
       {/* dados do pokemon */ }
-      <View style={ style.containerTop2 }>
+      <View style={ style.containerTop }>
         <View style={ style.dtContainer }>
           <DataTable >
-            <DataTable.Row >
-            <DataTable.Cell style= {style.epacoCell}>
-              <DataTable.Cell color style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Name : </Text></DataTable.Cell>
-              <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth}> 999</Text></DataTable.Cell>
+            <DataTable.Row style={ style.dtRow }>
+              <DataTable.Cell style={ style.epacoCell }>
+                <DataTable.Cell color style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Name : </Text></DataTable.Cell>
+                <Text >  </Text>
+                <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth }> 999</Text></DataTable.Cell>
               </DataTable.Cell>
             </DataTable.Row>
 
-            <DataTable.Row >
-            <DataTable.Cell  style= {style.epacoCell}>
-              <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Height : </Text></DataTable.Cell>
-              <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth}>999</Text></DataTable.Cell>
-            </DataTable.Cell>
+            <DataTable.Row style={ style.dtRow }>
+              <DataTable.Cell style={ style.epacoCell }>
+                <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Height : </Text></DataTable.Cell>
+                <Text >  </Text>
+                <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth }> 999</Text></DataTable.Cell>
+              </DataTable.Cell>
             </DataTable.Row>
 
-            <DataTable.Row >
-            <DataTable.Cell style= {style.epacoCell}>
-              <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Weight : </Text></DataTable.Cell>
-              <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth}>999</Text></DataTable.Cell>
-            </DataTable.Cell>
+            <DataTable.Row style={ style.dtRow }>
+              <DataTable.Cell style={ style.epacoCell }>
+                <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Weight : </Text></DataTable.Cell>
+                <Text >  </Text>
+                <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth }> 999</Text></DataTable.Cell>
+              </DataTable.Cell>
             </DataTable.Row>
 
-            <DataTable.Row >
-            <DataTable.Cell style= {style.epacoCell}>
-              <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Abilities : </Text></DataTable.Cell>
-              <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth}>999</Text></DataTable.Cell>
-            </DataTable.Cell>
+            <DataTable.Row style={ style.dtRow }>
+              <DataTable.Cell style={ style.epacoCell }>
+                <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Abilities :  </Text></DataTable.Cell>
+                <Text >  </Text>
+                <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth }> 999</Text></DataTable.Cell>
+              </DataTable.Cell>
             </DataTable.Row>
 
-            <DataTable.Row >
-            <DataTable.Cell style= {style.epacoCell}>
-              <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Types : </Text> </DataTable.Cell>
-              <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth}>999</Text></DataTable.Cell>
+            <DataTable.Row style={ style.dtRow }>
+              <DataTable.Cell style={ style.epacoCell }>
+                <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Types :  </Text> </DataTable.Cell>
+                <Text >  </Text>
+                <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth }> 999</Text></DataTable.Cell>
               </DataTable.Cell>
             </DataTable.Row>
           </DataTable>

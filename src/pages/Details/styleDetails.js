@@ -20,7 +20,7 @@ const style = StyleSheet.create( {
   dtRow: {
     border: 'none',
     textAlign: 'right',
-    justifyContent: 'center',
+   
     
 
   },
@@ -44,17 +44,32 @@ const style = StyleSheet.create( {
 
 
   dtCellLabel: {
-    fontWeight: 'bold',
+   /*  fontWeight: 'bold',
     textAlign: 'right',
-    fontSize: 20,
+    fontSize: 18, */
+    Fontfamily: 'Roboto',
+    Fontstyle: 'Bold',
+    Fontsize: '18px',
+    Lineheight: '21px',
+    Lineheight: '100%',
+    alignItem: 'Right',
+    Verticalalign: 'Top'
+    
    
 
   },
 
   dtCellData: {
-    textAlign: 'right',
-    fontSize: 20,
-    justifyContent: 'center',
+    /* textAlign: 'right',
+    fontSize: 18, */
+      Fontfamily: 'Roboto',
+    Fontstyle: 'Bold',
+    Fontsize: '18px',
+    Lineheight: '21px',
+    Lineheight: '100%',
+    alignItem: 'Right',
+    Verticalalign: 'Top'
+    
 
 
   },
@@ -76,13 +91,7 @@ const style = StyleSheet.create( {
 
   },
 
-  containerTop2: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    /* backgroundColor: 'steelblue', */
-    
 
-  },
 
   containerTopLeft: {
     flexDirection: 'row',
@@ -123,7 +132,7 @@ const style = StyleSheet.create( {
   },
 
   epacoCell:{
-    paddingLeft: 10,
+    justifyContent: 'space-between'
   }
 
 
