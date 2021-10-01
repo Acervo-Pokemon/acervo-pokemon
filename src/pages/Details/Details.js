@@ -1,10 +1,10 @@
 import React from 'react'
-import { StyleSheet, Button, View, SafeAreaView, Text, Alert, TextInput } from 'react-native'
+import { Image, StyleSheet, Button, View, SafeAreaView, Text, Alert, TextInput } from 'react-native'
 import style from './styleDetails'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { DataTable } from 'react-native-paper';
-import Svg, { Image } from 'react-native-svg';
+
 
 
 export default function Details() {
@@ -44,13 +44,26 @@ export default function Details() {
         </View>
       </View>
 
-      <View style={ style.photoPokemonView }>
+      
+         <View tyle={ style.centerScreen }>
         {/* imagem pokemon */ }
-        <img>
-          
-        </img>
-        
+       <View style={ style.centerScreen }>
+          <Image
+        source={{
+          flex: 1,
+          uri: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/7.svg',
+          width: 205,
+          height: 205,
+          margin: 20,
+          display: 'flex',
+
+        }}
+      />
+       </View>
+       
       </View>
+    
+     
       {/* dados do pokemon */ }
       <View style={ style.containerTop2 }>
         <View style={ style.dtContainer }>

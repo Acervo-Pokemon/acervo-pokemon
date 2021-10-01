@@ -8,7 +8,9 @@ const style = StyleSheet.create( {
     alignItems: 'center',
     justifyContent: 'center',
     maxHeight: '100'
+    
   },
+
 
   dtContainer: {
     borderRadius: 8,
@@ -19,13 +21,17 @@ const style = StyleSheet.create( {
     border: 'none',
     textAlign: 'right',
     fontWeight: 'bold',
+    alignItems: 'left'
+    
 
   },
 
   dtTextLeft:{
     textAlign: 'right',
     fontWeight: 'bold',
-    color:'#22368E'
+    color:'#22368E',
+    
+    
   },
   
   dtTextRigth:{
@@ -74,7 +80,7 @@ const style = StyleSheet.create( {
     flexDirection: 'row',
     justifyContent: 'center',
     /* backgroundColor: 'steelblue', */
-    margin: 20
+    
 
   },
 
@@ -95,7 +101,7 @@ const style = StyleSheet.create( {
   photoPokemonView: {
     flex: 1,
     borderRadius: 8,
-    width:  410,
+    width:  200,
     height: 200,
     backgroundColor: 'skyblue',
     justifyContent: 'center', 
@@ -112,7 +118,7 @@ const style = StyleSheet.create( {
     width: 50,
     height: 50,
     backgroundColor: "#22368E",
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
     alignItems: 'center'
   }
 
