@@ -1,13 +1,5 @@
-import { StyleSheet } from "react-native";
-
-
-const button = StyleSheet.create({
-  default: {
-    backgroundColor: "#22368E",
-    justifyContent: "center",
-    alignItems: "center",
-  }
-})
+import { StyleSheet } from 'react-native'
+import { button, colors } from '../../assets/css/styles'
 
 const style = StyleSheet.create({
   base: {
@@ -15,42 +7,20 @@ const style = StyleSheet.create({
     backgroundColor: 'white'
   },
   content: {
+    maxHeight: 400,
     paddingTop: 15
   },
-
-
-  row: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    margin: 14,
+  buttonEnabled: {
+    ...button.default
   },
-  inputPesquisar: {
-    color: "#22368E",
-    borderWidth: 3,
-    borderColor: "#22368E",
-    borderRadius: 5,
-    paddingLeft: 15,
-    paddingTop: 10,
-    paddingBottom: 10,
-    fontSize: 18,
-    width: "65%",
+  buttonDisabled: {
+    ...button.disabled
   },
-  buttonSearchClear:{
-    ...button.default,
-    width: 55,
-  },
-  buttonPreviousNext:{
-    ...button.default,
-    width: 50,
-    height: 50,
-  }, 
-  buttonPreviousNextDisabled:{
-    ...button.default,
-    width: 50,
-    height: 50,
-    backgroundColor: 'grey'
+  feedbackSearch: {
+    alignItems: 'center',
+    fontSize: 16,
+    ...colors.blue
   }
-});
+})
 
-
-export default style;
+export default style

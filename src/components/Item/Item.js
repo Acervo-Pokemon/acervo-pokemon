@@ -23,19 +23,19 @@ export default function Item({ data }) {
   });
 
   return (
-    <View>
+    <View   style={style.toucheable}>
       <TouchableOpacity
-        style={style.toucheable}
+        style={{width: 300,flexDirection: 'row',alignItems: 'center'}}
         onPress={() => navigation.navigate("Details")}
       >
         <Image source={{ uri: img }} style={style.image}></Image>
-        <View style={{width: '50%'}}>
+        <View style={{width: '75%'}}>
           <Text style={style.text}>{capitalize(data.name)}</Text>
         </View>
-        <View style={{ justifyContent: 'center' }}>
+      </TouchableOpacity>
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <ButtonFavorites></ButtonFavorites>
         </View>
-      </TouchableOpacity>
     </View>
   );
 }
