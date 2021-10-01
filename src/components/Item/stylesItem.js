@@ -19,6 +19,14 @@ const style = StyleSheet.create({
     fontSize: 30,
     textAlign: 'left',
     color: '#22368E'
-  }
+  },
+  btnFavorites: {
+    alignSelf: 'flex-end',
+    borderRadius: 10,
+    width: "100%",
+    height: 50,
+    justifyContent: "center",
+    alignItems: "center",
+  },
 })
 export default style

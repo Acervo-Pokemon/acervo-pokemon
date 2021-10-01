@@ -1,7 +1,7 @@
 // react, react-native
 import React from 'react'
 import { FlatList } from 'react-native'
-
+import { isFavorite } from '../../services/favoriteService'
 // components
 import Item from '../Item/Item'
 
@@ -14,7 +14,7 @@ export default function FlatListPokemon({ list }) {
       style={style.flatlist}
       data={(list)}
       keyExtractor={(item) => item.name}
-      renderItem={({ item }) => <Item data={item} />}
+      renderItem={({ item }) => <Item favorite={false}data={item} />}
     />
   )
 }
