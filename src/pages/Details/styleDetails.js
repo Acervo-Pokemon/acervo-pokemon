@@ -22,9 +22,15 @@ const style = StyleSheet.create( {
 
   },
 
-  dtText:{
+  dtTextLeft:{
     textAlign: 'right',
     fontWeight: 'bold',
+    color:'#22368E'
+  },
+  
+  dtTextRigth:{
+    textAlign: 'left',
+    color:'#22368E'
   },
 
   dtCell: {
@@ -87,10 +93,12 @@ const style = StyleSheet.create( {
   },
 
   photoPokemonView: {
+    flex: 1,
     borderRadius: 8,
-    width: 300,
+    width:  410,
     height: 200,
-    backgroundColor: 'skyblue'
+    backgroundColor: 'skyblue',
+    justifyContent: 'center', 
   },
 
   characteristicsView: {
