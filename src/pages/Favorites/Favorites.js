@@ -5,10 +5,7 @@ import { useNavigation } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
 
 // components
-import Header from '../../components/template/Header'
-import SearchBar from '../../components/SearchBar/SearchBar'
 import FlatListPokemon from '../../components/FlatListPokemon/FlatListPokemon'
-import NavigationBar from '../../components/NavigationBar/NavigationBar'
 
 // control
 import { getFirstPage } from '../../control/pokemonControl'
@@ -21,10 +18,6 @@ import style from './stylesFavorites'
 
 export default function Favorites() {
   const [list, setList] = useState([])
-  const [previous, setPrevious] = useState()
-  const [next, setNext] = useState()
-  const [init, setInit] = useState(true)
-  const [search, setSearch] = useState('')
   const [statusSearch, setStatusSearch] = useState('')
 
   const navigation = useNavigation()
@@ -36,12 +29,7 @@ export default function Favorites() {
   async function handleFirst() {
     try {
       const response = await getFirstPage(limit)
-      setPrevious(response.previous)
-      setNext(response.next)
       setList(response.results)
-      setInit(false)
-      setSearch('')
-      setStatusSearch('')
     } catch (error) {
       Alert.alert('Error on handleFirst: ' + error)
     } finally {
@@ -52,38 +40,11 @@ export default function Favorites() {
   return (
     <View style={style.base}>
       <StatusBar hidden />
-
-      <SearchBar
-        search={search} setSearch={setSearch}
-        setStatusSearch={setStatusSearch}
-        setList={setList}
-        handleFirst={handleFirst}
-      />
-
-      {
-        statusSearch !== '' &&
-        <View style={style.feedbackSearch}>
-          <Text style={style.feedbackSearch}>{statusSearch}</Text>
-        </View>
-      }
-
       {
         list.length > 0 &&
         <View style={style.content}>
-          <View>
+          <View style={{width:'100%',justifyContent: 'flex-end'}}>
             <FlatListPokemon list={list} />
-            {
-              list.length > 1 &&
-              <NavigationBar
-                previous={previous} setPrevious={setPrevious}
-                next={next} setNext={setNext}
-                list={list} setList={setList}
-                search={search}
-                listLenght={list.length}
-                handleFirst={handleFirst}
-                init={init}
-              />
-            }
           </View>
         </View>
       }

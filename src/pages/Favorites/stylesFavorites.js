@@ -7,8 +7,8 @@ const style = StyleSheet.create({
     backgroundColor: 'white'
   },
   content: {
-    maxHeight: 400,
-    paddingTop: 15
+    maxHeight: 640,
+    paddingTop: 20
   },
   buttonEnabled: {
     ...button.default
