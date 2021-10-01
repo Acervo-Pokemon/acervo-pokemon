@@ -1,46 +1,91 @@
 import { StyleSheet } from 'react-native'
 
-const style = StyleSheet.create({
-    centerScreen: {
-        flex : 1,
-        textAlign: 'center',
-        alignItems: 'center',
-        justifyContent: 'center',      
-        maxHeight: '100'
-        
-    },
-    container : {
-      backgroundColor: '#14279B'
-    },
-    textoViewer:{
-      textAlign: 'center',
-      justifyContent : 'center',
-      color: '#14279B'
-    },
+const style = StyleSheet.create( {
+  centerScreen: {
+    flex: 1,
+    textAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    maxHeight: '100'
+  },
 
-    boxDetails:{
-      flex: 1,
-      borderRadius: '5px',
-      borderColor: '#000000',
-      
-    },
-
-    statisticView: {
-      flex: 2, 
-      backgroundColor: 'steelblue'
-    },
-
-    photoPokemonView:{
-      flex: 3,
-      backgroundColor: 'skyblue'
-    },
-
-    characteristicsView:{
-      flex: 3,
-      backgroundColor: 'steelblue',
-      
-    }
+  container: {
     
+  },
 
-})
+  dtRow:{
+
+  },
+
+  dtCell:{
+    
+  },
+
+  textViewer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  
+  textLabel:{
+    fontWeight: 'bold',
+    textAlign: 'right',
+    fontSize: 20
+
+  },
+  
+  textData:{
+    textAlign: 'left',
+    fontSize: 20
+
+  
+  },
+
+  boxDetails: {
+    flex: 1,
+  },
+
+  containerTop:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: 'steelblue',
+    margin: 20
+     
+  },
+
+  containerTopLeft: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+
+  containerText:{
+    marginLeft: 20
+  
+  },
+
+  containerTopRigth:{
+   
+  },
+
+  photoPokemonView: {
+    flex: 3,
+    backgroundColor: 'skyblue'
+  },
+
+  characteristicsView: {
+    flex: 3,
+    backgroundColor: 'steelblue',
+
+  },
+
+  touchableOpacityFavorito: {
+    borderRadius: 10,
+    width: 50,
+    height: 50,
+    backgroundColor: "#22368E",
+    justifyContent: 'flex-end',
+    alignItems: 'center'
+  }
+
+
+} )
 export default style
