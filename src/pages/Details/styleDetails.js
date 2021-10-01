@@ -20,8 +20,7 @@ const style = StyleSheet.create( {
   dtRow: {
     border: 'none',
     textAlign: 'right',
-    fontWeight: 'bold',
-    alignItems: 'left'
+    justifyContent: 'center',
     
 
   },
@@ -48,13 +47,14 @@ const style = StyleSheet.create( {
     fontWeight: 'bold',
     textAlign: 'right',
     fontSize: 20,
-    color: 'black'
+   
 
   },
 
   dtCellData: {
-    textAlign: 'left',
-    fontSize: 20
+    textAlign: 'right',
+    fontSize: 20,
+    justifyContent: 'center',
 
 
   },
@@ -120,6 +120,10 @@ const style = StyleSheet.create( {
     backgroundColor: "#22368E",
     justifyContent: 'center',
     alignItems: 'center'
+  },
+
+  epacoCell:{
+    paddingLeft: 10,
   }
 
 

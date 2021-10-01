@@ -68,24 +68,39 @@ export default function Details() {
       <View style={ style.containerTop2 }>
         <View style={ style.dtContainer }>
           <DataTable >
-            <DataTable.Row style={ style.dtRow }>
-              <DataTable.Cell color style={ style.dtCellLabel }> <Text style={ style.dtTextLeft } >Nome : </Text></DataTable.Cell>
-              <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth}>999</Text></DataTable.Cell>
+            <DataTable.Row >
+            <DataTable.Cell style= {style.epacoCell}>
+              <DataTable.Cell color style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Name : </Text></DataTable.Cell>
+              <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth}> 999</Text></DataTable.Cell>
+              </DataTable.Cell>
             </DataTable.Row>
 
-            <DataTable.Row style={ style.dtRow }>
-              <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Peso : </Text></DataTable.Cell>
+            <DataTable.Row >
+            <DataTable.Cell  style= {style.epacoCell}>
+              <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Height : </Text></DataTable.Cell>
               <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth}>999</Text></DataTable.Cell>
+            </DataTable.Cell>
             </DataTable.Row>
 
-            <DataTable.Row style={ style.dtRow }>
-              <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Altura : </Text></DataTable.Cell>
+            <DataTable.Row >
+            <DataTable.Cell style= {style.epacoCell}>
+              <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Weight : </Text></DataTable.Cell>
               <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth}>999</Text></DataTable.Cell>
+            </DataTable.Cell>
             </DataTable.Row>
 
-            <DataTable.Row style={ style.dtRow }>
-              <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Tipo : </Text> </DataTable.Cell>
+            <DataTable.Row >
+            <DataTable.Cell style= {style.epacoCell}>
+              <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Abilities : </Text></DataTable.Cell>
               <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth}>999</Text></DataTable.Cell>
+            </DataTable.Cell>
+            </DataTable.Row>
+
+            <DataTable.Row >
+            <DataTable.Cell style= {style.epacoCell}>
+              <DataTable.Cell style={ style.dtCellLabel }><Text style={ style.dtTextLeft } >Types : </Text> </DataTable.Cell>
+              <DataTable.Cell style={ style.dtCellData }><Text style={ style.dtTextRigth}>999</Text></DataTable.Cell>
+              </DataTable.Cell>
             </DataTable.Row>
           </DataTable>
         </View>
