@@ -10,7 +10,7 @@ import { getDetails, capitalize } from "../../control/pokemonControl";
 import style from "./stylesItem";
 import { useNavigation } from "@react-navigation/native";
 
-export default function Item({ data }) {
+export default function Item({ data,favorite }) {
   const [img, setImg] = useState();
   const navigation = useNavigation();
 
@@ -34,20 +34,20 @@ export default function Item({ data }) {
         </View>
       </TouchableOpacity>
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <ButtonFavorites></ButtonFavorites>
+          <ButtonFavorites favorite={favorite}></ButtonFavorites>
         </View>
     </View>
   );
 }
 
-function ButtonFavorites() {
+function ButtonFavorites({favorite}) {
   return (
     <View style={{ }}>
       <TouchableOpacity
         onPress={()=> {console.log("favorites")}}
         style={style.btnFavorites}
       >
-        <Icon color="grey" size={35} name="star" />
+        <Icon color={favorite?"#FFEC14":"grey"} size={35} name="star" />
       </TouchableOpacity>
     </View>
   );
