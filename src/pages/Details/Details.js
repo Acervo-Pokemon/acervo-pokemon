@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Button, View, SafeAreaView, Text, Alert, TextInput } from 'react-native'
+import {  StyleSheet, Button, View, SafeAreaView, Text, Alert, TextInput } from 'react-native'
 import style from './styleDetails'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -47,35 +47,36 @@ export default function Details() {
       <View style={ style.photoPokemonView }>
         {/* imagem pokemon */ }
         <Text>imagem</Text>
+        <View style={{flex: 1, flexDirection: 'column'}}>
+          <View style={{width : 50, height : 50, backgroundColor: 'skyblue'}}> </View>
+        </View>
       </View>
-      <View style={ style.characteristicsView }>
-        {/* dados do pokemon */ }
-        <View style={ style.textViewer }>
-          <Text>nome</Text>
-          <Text>XXX</Text>
-        </View>
+      {/* dados do pokemon */ }
+      <View style={ style.containerTop2 }>
+      <View style={ style.dtContainer }>
+          <DataTable>
+            <DataTable.Row style={ style.dtRow }>
+              <DataTable.Cell color style={style.dtCellLabel}>Nome : </DataTable.Cell>
+              <DataTable.Cell style={style.dtCellData}>999</DataTable.Cell>
+            </DataTable.Row>
+            
+            <DataTable.Row>
+              <DataTable.Cell style={style.dtCellLabel}>Peso : </DataTable.Cell>
+              <DataTable.Cell style={style.dtCellData}>999</DataTable.Cell>
+            </DataTable.Row>
 
-        <View style={ style.textViewer }>
-          <Text>altura</Text>
-          <Text>XXX</Text>
+            <DataTable.Row>
+              <DataTable.Cell style={style.dtCellLabel}>Altura : </DataTable.Cell>
+              <DataTable.Cell style={style.dtCellData}>999</DataTable.Cell>
+            </DataTable.Row>
+            
+            <DataTable.Row>
+              <DataTable.Cell style={style.dtCellLabel}>Tipo : </DataTable.Cell>
+              <DataTable.Cell style={style.dtCellData}>999</DataTable.Cell>
+            </DataTable.Row>
+          </DataTable>
         </View>
-
-        <View style={ style.textViewer }>
-          <Text>peso</Text>
-          <Text>XXX</Text>
-        </View>
-
-        <View style={ style.textViewer } >
-          <Text>habilidades</Text>
-          <Text>XXX</Text>
-        </View>
-
-        <View style={ style.textViewer }>
-          <Text>tipos</Text>
-          <Text>XXX</Text>
-        </View>
-
-      </View>
+    </View>
     </View>
 
     /*

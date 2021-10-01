@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
-import { colors } from
+
+
 const style = StyleSheet.create({
   centerScreen: {
     flex: 1,
@@ -10,11 +11,12 @@ const style = StyleSheet.create({
   },
 
   dtContainer: {
+    borderRadius: 8,
     width: 300
   },
 
   dtRow: {
-    border: none
+    border: 'none'
 
   },
 
@@ -50,6 +52,14 @@ const style = StyleSheet.create({
   containerTop: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    /* backgroundColor: 'steelblue', */
+    margin: 20
+
+  },
+
+  containerTop2: {
+    flexDirection: 'row',
+    justifyContent: 'center',
     /* backgroundColor: 'steelblue', */
     margin: 20
 
