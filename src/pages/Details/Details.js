@@ -12,35 +12,27 @@ export default function Details() {
     <View style={ style.boxDetails }>
       <View style={ style.containerTop }>
 
-        <View style={ style.container }>
+        <View style={ style.dtContainer }>
           <DataTable>
-           
-
-            <DataTable.Row style={ style.dtrow }>
-              <DataTable.Cell>John</DataTable.Cell>
-              <DataTable.Cell>999</DataTable.Cell>
+            <DataTable.Row style={ style.dtRow }>
+              <DataTable.Cell color style={style.dtCellLabel}>Hp : </DataTable.Cell>
+              <DataTable.Cell style={style.dtCellData}>999</DataTable.Cell>
             </DataTable.Row>
-            
             
             <DataTable.Row>
-              <DataTable.Cell>Attack</DataTable.Cell>
-              <DataTable.Cell>999</DataTable.Cell>
+              <DataTable.Cell style={style.dtCellLabel}>Attack : </DataTable.Cell>
+              <DataTable.Cell style={style.dtCellData}>999</DataTable.Cell>
             </DataTable.Row>
 
+            <DataTable.Row>
+              <DataTable.Cell style={style.dtCellLabel}>Defense : </DataTable.Cell>
+              <DataTable.Cell style={style.dtCellData}>999</DataTable.Cell>
+            </DataTable.Row>
             
             <DataTable.Row>
-              <DataTable.Cell>Defense</DataTable.Cell>
-              <DataTable.Cell>999</DataTable.Cell>
+              <DataTable.Cell style={style.dtCellLabel}>Speed : </DataTable.Cell>
+              <DataTable.Cell style={style.dtCellData}>999</DataTable.Cell>
             </DataTable.Row>
-
-            
-            <DataTable.Row>
-              <DataTable.Cell>Speed</DataTable.Cell>
-              <DataTable.Cell>999</DataTable.Cell>
-            </DataTable.Row>
-           
-
-
           </DataTable>
         </View>
 

@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
-
-const style = StyleSheet.create( {
+import { colors } from
+const style = StyleSheet.create({
   centerScreen: {
     flex: 1,
     textAlign: 'center',
@@ -9,47 +9,50 @@ const style = StyleSheet.create( {
     maxHeight: '100'
   },
 
-  container: {
-    
+  dtContainer: {
+    width: 300
   },
 
-  dtRow:{
+  dtRow: {
+    border: none
 
   },
 
-  dtCell:{
-    
+  dtCell: {
+
+  },
+
+
+  dtCellLabel: {
+    fontWeight: 'bold',
+    textAlign: 'right',
+    fontSize: 20,
+    color: 'black'
+
+  },
+
+  dtCellData: {
+    textAlign: 'left',
+    fontSize: 20
+
+
   },
 
   textViewer: {
     flexDirection: 'row',
     justifyContent: 'center',
   },
-  
-  textLabel:{
-    fontWeight: 'bold',
-    textAlign: 'right',
-    fontSize: 20
-
-  },
-  
-  textData:{
-    textAlign: 'left',
-    fontSize: 20
-
-  
-  },
 
   boxDetails: {
     flex: 1,
   },
 
-  containerTop:{
+  containerTop: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: 'steelblue',
+    /* backgroundColor: 'steelblue', */
     margin: 20
-     
+
   },
 
   containerTopLeft: {
@@ -57,23 +60,23 @@ const style = StyleSheet.create( {
     justifyContent: 'center',
   },
 
-  containerText:{
+  containerText: {
     marginLeft: 20
-  
+
   },
 
-  containerTopRigth:{
-   
+  containerTopRigth: {
+
   },
 
   photoPokemonView: {
     flex: 3,
-    backgroundColor: 'skyblue'
+    /* backgroundColor: 'skyblue' */
   },
 
   characteristicsView: {
     flex: 3,
-    backgroundColor: 'steelblue',
+    /* backgroundColor: 'steelblue', */
 
   },
 
@@ -87,5 +90,5 @@ const style = StyleSheet.create( {
   }
 
 
-} )
+})
 export default style
