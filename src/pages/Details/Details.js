@@ -16,7 +16,7 @@ import { getFirstPage } from '../../control/pokemonControl'
 //datatable 
 import { DataTable } from 'react-native-paper';
 
-//style 
+//styles do projeto 
 import style from './styleDetails'
 
 export default function Details() {
