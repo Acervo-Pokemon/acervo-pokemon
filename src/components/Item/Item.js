@@ -10,44 +10,46 @@ import { getDetails, capitalize } from '../../control/pokemonControl'
 import style from './stylesItem'
 import { useNavigation } from '@react-navigation/native'
 
-export default function Item({ data,favorite }) {
+export default function Item({ data, favorite }) {
   const [img, setImg] = useState()
+  const [pokemon, setPokemon] = useState()
   const navigation = useNavigation()
 
   useEffect(() => {
     async function loadImg() {
       const details = await getDetails(data.url)
+      setPokemon(details)
       setImg(details.sprites.front_default)
     }
     loadImg()
   })
 
   return (
-    <View   style={style.toucheable}>
+    <View style={style.toucheable}>
       <TouchableOpacity
-        style={{width: 300,flexDirection: 'row',alignItems: 'center'}}
-        onPress={() => navigation.navigate('Details', { url: data.url })}
+        style={{ width: 300, flexDirection: 'row', alignItems: 'center' }}
+        onPress={() => navigation.navigate('Details', { pokemon })}
       >
         <Image source={{ uri: img }} style={style.image}></Image>
-        <View style={{width: '75%'}}>
+        <View style={{ width: '75%' }}>
           <Text style={style.text}>{capitalize(data.name)}</Text>
         </View>
       </TouchableOpacity>
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <ButtonFavorites favorite={favorite}></ButtonFavorites>
-        </View>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ButtonFavorites favorite={favorite}></ButtonFavorites>
+      </View>
     </View>
   )
 }
 
-function ButtonFavorites({favorite}) {
+function ButtonFavorites({ favorite }) {
   return (
-    <View style={{ }}>
+    <View style={{}}>
       <TouchableOpacity
-        onPress={()=> {console.log('favorites')}}
+        onPress={() => { console.log('favorites') }}
         style={style.btnFavorites}
       >
-        <Icon color={favorite?'#FFEC14':'grey'} size={35} name='star' />
+        <Icon color={favorite ? '#FFEC14' : 'grey'} size={35} name='star' />
       </TouchableOpacity>
     </View>
   )
