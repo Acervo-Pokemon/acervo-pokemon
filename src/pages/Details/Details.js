@@ -22,40 +22,46 @@ import { DataTable } from 'react-native-paper'
 import style from './styleDetails'
 
 export default function Details(url) {
-  const [pokemon, setPokemon] = useState(null)
+  const obj = {
+    name: '',
+    height: 0,
+    weight: 0,
+    abilities: [{
+      ability: {
+        name: ''
+      }
+    }],
+    types: [],
+    image: '',
+    stats: {
+      hp: 0,
+      attack: 0,
+      defense: 0,
+      speed: 0
+    }
+  }
+
+  const [pokemon, setPokemon] = useState({ obj })
 
   const navigation = useNavigation()
 
   useEffect(() => {
     async function loadPokemon() {
-      console.log(url.route.params.url)
       const response = await getDetails(url.route.params.url)
-      //console.log(response)
-      
       setPokemon(response)
-      console.log(pokemon)
-      console.log(response.name)
     }
     loadPokemon()
-  }, [url])
+  }, [])
 
-  //console.log(response)
-  //setAbilities(response.abilities)
-  //console.log(abilities)
-  //console.log(pokemon)
-  //setPokemon(response.data)
-  //console.log(pokemon)
-  //setAbilities(response.abilities)
-  //console.log(abilities)
   return (
     <View>
-      {/* <FlatList
-        style={{}}
+      <Text style={{ fontSize: 40 }}>{pokemon.name}</Text>
+      <FlatList
+        style={{ fontSize: 20, color: 'red' }}
         data={(pokemon.abilities)}
         keyExtractor={(item) => item.ability.name}
-        renderItem={({ item }) => <Text>{item.ability.name}</Text>
-        }
-      /> */}
+        renderItem={({ item }) => <Text>{item.ability.name}</Text>}
+      />
     </View>
   )
 }
