@@ -14,7 +14,7 @@ export default function FlatListPokemon({ list }) {
       style={style.flatlist}
       data={(list)}
       keyExtractor={(item) => item.name}
-      renderItem={({ item }) => <Item favorite={false}data={item} />}
+      renderItem={({ item }) => <Item favorite={false} data={item} />}
     />
   )
 }

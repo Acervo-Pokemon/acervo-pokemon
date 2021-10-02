@@ -18,7 +18,7 @@ const style = StyleSheet.create( {
   },
 
   dtRow: {
-    border: 'none',
+//    border: 'none',
     textAlign: 'right',
    
     
@@ -47,31 +47,20 @@ const style = StyleSheet.create( {
    /*  fontWeight: 'bold',
     textAlign: 'right',
     fontSize: 18, */
-    Fontfamily: 'Roboto',
-    Fontstyle: 'Bold',
-    Fontsize: '18px',
-    Lineheight: '21px',
-    Lineheight: '100%',
-    alignItem: 'Right',
-    Verticalalign: 'Top'
-    
-   
-
+    fontFamily: 'Roboto',
+    fontWeight: 'bold',
+    fontSize: 18,
+    lineHeight: 20,
+    alignItems: 'flex-end'
   },
 
   dtCellData: {
     /* textAlign: 'right',
     fontSize: 18, */
-      Fontfamily: 'Roboto',
-    Fontstyle: 'Bold',
-    Fontsize: '18px',
-    Lineheight: '21px',
-    Lineheight: '100%',
-    alignItem: 'Right',
-    Verticalalign: 'Top'
-    
-
-
+    fontFamily: 'Roboto',
+    fontSize: 18,
+    lineHeight: 20,
+    alignItems: 'flex-start'
   },
 
   textViewer: {
