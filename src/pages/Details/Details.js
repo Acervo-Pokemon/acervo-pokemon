@@ -1,12 +1,10 @@
 // react , react native, react native paper
 import React from 'react'
-import { Alert, keyboard, Image, StyleSheet, Button, View, SafeAreaView, Text, Alert, TextInput } from 'react-native'
+import { Alert, keyboard, Image, StyleSheet, Button, View, SafeAreaView, Text,  TextInput } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native'
 
-//useState, useEffect
-import React, { useState, useEffect } from 'react'
 
 //components
 import Header from '../../components/template/Header'
@@ -23,7 +21,9 @@ import style from './styleDetails'
 
 export default function Details() {
 
-  const pegaDadosPokemon = ( props ) => {
+  //setando atributos que vao sr manipulados dentro do vetor
+
+/*   const pegaDadosPokemon = ( props ) => {
     const [ Name, setName ] = useState( '' );
     const [ Height, setHeight ] = useState( '' );
     const [ Weight, setWeight ] = useState( '' );
@@ -60,7 +60,7 @@ export default function Details() {
 
       }
 
-    }
+    } */
 
     return (
       <View style={ style.boxDetails }> {/*cordena a caixa a onde as views estao*/ }
@@ -205,4 +205,3 @@ export default function Details() {
       */
     )
   }
-}
