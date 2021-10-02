@@ -1,5 +1,52 @@
+<img src="https://avatars.githubusercontent.com/u/91509293?s=200&v=4"/></a>
+
+## Api que serã consumida
+
+![image](https://user-images.githubusercontent.com/55209015/135701041-2842f3a3-74f3-45c8-8119-66e4b503d348.png)
+
+Listagem https://pokeapi.co/api/v2/pokemon/?limit=10&offset=0
+
+Buscar Pokemon: https://pokeapi.co/api/v2/pokemon/7
+
+Documentação: https://pokeapi.co/docs/v2
+
+## Telas
+
+```
+->Tela de Busca,
+Botão para busca do nome do pokémon
+Botão listar favoritos.
+->Tela de Detalhe, detalhes do pokémon (permitir favoritar o mesmo)
+Deverá conter: (nome, altura, peso, habilidades, tipos, foto e estatísticas)
+Vejam as seguintes propriedades:
+name
+height
+weight
+[Abilities] -> listar ability (name)
+[Types] -> listar type (name)
+[Sprites] //IMAGEM EM SVG
+ "other": {
+ "dream_world": {
+ "front_default":
+[Stats] -> listar stat (name e base_stat)
+Obs. listar somente: hp,attack,defense e speed
+->Tela de Favoritos
+Mostrar lista de pokémons favoritos (Usar useEffects)
+nome e foto pokémon
+```
 ## Prototype
+```
 https://www.figma.com/file/rT5CEumbSMVUbu2CJnFKG0/Untitled?node-id=1%3A3
+```
+## Estrutura
+
+![image](https://user-images.githubusercontent.com/55209015/135701330-e15461bb-32d4-47ab-8da9-8a8f0e886584.png)
+
+![image](https://user-images.githubusercontent.com/55209015/135701341-662a05c9-4509-4912-9121-70ae8ca32f83.png)
+
+
+## Branch
+![image](https://user-images.githubusercontent.com/55209015/135701265-5db55c4e-a0c7-411a-b744-4cb3b603988b.png)
 
 ---
 
