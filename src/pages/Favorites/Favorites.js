@@ -22,20 +22,8 @@ export default function Favorites() {
 
   const navigation = useNavigation()
 
-  useEffect(() => {
-    handleFirst()
-  }, [])
+  useEffect(() => { }, [])
 
-  async function handleFirst() {
-    try {
-      const response = await getFirstPage(limit)
-      setList(response.results)
-    } catch (error) {
-      Alert.alert('Error on handleFirst: ' + error)
-    } finally {
-      Keyboard.dismiss()
-    }
-  }
 
   return (
     <View style={style.base}>

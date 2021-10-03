@@ -73,7 +73,7 @@ export default function Home() {
         list.length > 0 &&
         <View style={style.content}>
           <View>
-            <FlatListPokemon list={list} />
+            <FlatListPokemon handleFirst={handleFirst} list={list} />
             {
               list.length > 1 &&
               <NavigationBar
