@@ -51,6 +51,8 @@ export default function Item({ data }) {
   }
 
   async function saveFavorite() {
+    // GAMBIARRA
+    // await AsyncStorage.clear()
     let favorites = await getAllFavorite();
     const url = data.url.replace('-form', '');
     (favorite ? favorites = favorites.filter((value) => value !== url) : favorites.push(url));
