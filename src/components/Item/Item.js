@@ -38,8 +38,8 @@ export default function Item({ data }) {
     if (favorites.length == 0) {
       return false;
     }
-    const url = data.url.replace('-form', '');
-    return favorites.filter((value) => value === url).length > 0
+    const url = data.url.replace('-form', '');    
+    return favorites.filter((value) => value.url === url).length > 0
   }
 
   async function getAllFavorite() {
@@ -55,8 +55,8 @@ export default function Item({ data }) {
     // await AsyncStorage.clear()
     let favorites = await getAllFavorite();
     const url = data.url.replace('-form', '');
-    (favorite ? favorites = favorites.filter((value) => value !== url) : favorites.push(url));
-    await AsyncStorage.setItem('@favorites', JSON.stringify(favorites));
+    (favorite ? favorites = favorites.filter((value) => value.url !== url) : favorites.push({url:url,name: data.name}));
+    await AsyncStorage.setItem('@favorites', JSON.stringify(favorites));    
     onRefresh();
   }
 
