@@ -20,7 +20,7 @@ const style = StyleSheet.create({
 
     boxDetails:{
       flex: 1,
-      borderRadius: '5px',
+      borderRadius: 5,
       borderColor: '#000000',
       
     },
