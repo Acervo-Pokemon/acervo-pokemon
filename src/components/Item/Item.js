@@ -12,7 +12,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function Item({ data, handleFirst }) {
+export default function Item({ data }) {
   const [img, setImg] = useState();
   const navigation = useNavigation();
   const [favorite, setFavorite] = useState(false);
@@ -37,7 +37,7 @@ export default function Item({ data, handleFirst }) {
       return false;
     }
     const url = data.url.replace('-form', '');    
-    return favorites.filter((value) => value === url).length > 0
+    return favorites.filter((value) => value.url === url).length > 0
   }
 
   async function getAllFavorite() {
@@ -51,7 +51,7 @@ export default function Item({ data, handleFirst }) {
   async function saveFavorite() {
     let favorites = await getAllFavorite();
     const url = data.url.replace('-form', '');
-    (favorite ? favorites = favorites.filter((value) => value !== url) : favorites.push(url));
+    (favorite ? favorites = favorites.filter((value) => value.url !== url) : favorites.push({url:url,name: data.name}));
     await AsyncStorage.setItem('@favorites', JSON.stringify(favorites));    
     onRefresh();
   }

@@ -1,5 +1,5 @@
 // react, react-native, expo
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { View, Alert, Text, Keyboard } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
@@ -15,14 +15,30 @@ import { limit } from '../../assets/const/const'
 
 // style
 import style from './stylesFavorites'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export default function Favorites() {
   const [list, setList] = useState([])
-  const [statusSearch, setStatusSearch] = useState('')
 
   const navigation = useNavigation()
 
-  useEffect(() => { }, [])
+  useEffect(() => { 
+    async function load(){
+      let favorites = await getAllFavorite();         
+      var vet = favorites.map((value)=> {return value})
+      setList(vet);
+    }  
+    load();
+  }, [])
+  
+  async function getAllFavorite() {
+    let favorites = JSON.parse(await AsyncStorage.getItem("@favorites"));
+    console.log(favorites)
+    if (favorites == null) {
+      return [];
+    }
+    return favorites;
+  }
 
 
   return (
