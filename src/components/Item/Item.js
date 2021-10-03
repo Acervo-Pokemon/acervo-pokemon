@@ -1,5 +1,5 @@
 // react, react-native, expo
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -17,6 +17,10 @@ export default function Item({ data, handleFirst }) {
   const navigation = useNavigation();
   const [favorite, setFavorite] = useState(false);
 
+  const onRefresh = useCallback(async ()=> {
+    setFavorite(await isFavorite());
+  },[]);
+
   useEffect(() => {
     async function loadImg() {
       const details = await getDetails(data.url);
@@ -32,7 +36,8 @@ export default function Item({ data, handleFirst }) {
     if (favorites.length == 0) {
       return false;
     }
-    return favorites.filter((value) => value === data.url).length > 0
+    const url = data.url.replace('-form', '');    
+    return favorites.filter((value) => value === url).length > 0
   }
 
   async function getAllFavorite() {
@@ -45,9 +50,10 @@ export default function Item({ data, handleFirst }) {
 
   async function saveFavorite() {
     let favorites = await getAllFavorite();
-    (favorite ? favorites = favorites.filter((value) => value !== data.url) : favorites.push(data.url));
-    await AsyncStorage.setItem('@favorites', JSON.stringify(favorites));
-    await handleFirst();
+    const url = data.url.replace('-form', '');
+    (favorite ? favorites = favorites.filter((value) => value !== url) : favorites.push(url));
+    await AsyncStorage.setItem('@favorites', JSON.stringify(favorites));    
+    onRefresh();
   }
 
   return (
