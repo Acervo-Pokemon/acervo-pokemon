@@ -17,9 +17,9 @@ export default function Item({ data }) {
   const navigation = useNavigation();
   const [favorite, setFavorite] = useState(false);
 
-  const onRefresh = useCallback(async ()=> {
+  const onRefresh = useCallback(async () => {
     setFavorite(await isFavorite());
-  },[]);
+  }, []);
 
   useEffect(() => {
     async function loadImg() {
