@@ -12,14 +12,14 @@ import { useNavigation } from "@react-navigation/native";
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function Item({ data, handleFirst }) {
+export default function Item({ data }) {
   const [img, setImg] = useState();
   const navigation = useNavigation();
   const [favorite, setFavorite] = useState(false);
 
-  const onRefresh = useCallback(async ()=> {
+  const onRefresh = useCallback(async () => {
     setFavorite(await isFavorite());
-  },[]);
+  }, []);
 
   useEffect(() => {
     async function loadImg() {
@@ -36,7 +36,7 @@ export default function Item({ data, handleFirst }) {
     if (favorites.length == 0) {
       return false;
     }
-    const url = data.url.replace('-form', '');    
+    const url = data.url.replace('-form', '');
     return favorites.filter((value) => value === url).length > 0
   }
 
@@ -52,7 +52,7 @@ export default function Item({ data, handleFirst }) {
     let favorites = await getAllFavorite();
     const url = data.url.replace('-form', '');
     (favorite ? favorites = favorites.filter((value) => value !== url) : favorites.push(url));
-    await AsyncStorage.setItem('@favorites', JSON.stringify(favorites));    
+    await AsyncStorage.setItem('@favorites', JSON.stringify(favorites));
     onRefresh();
   }
 
