@@ -12,7 +12,7 @@ import { useNavigation } from '@react-navigation/native'
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function Item({ data }) {
+export default function Item({ data, page, loadList }) {
   const [img, setImg] = useState();
   const [pokemon, setPokemon] = useState()
   const navigation = useNavigation();
@@ -20,6 +20,9 @@ export default function Item({ data }) {
 
   const onRefresh = useCallback(async () => {
     setFavorite(await isFavorite());
+    if(page === 'Favorites'){
+      loadList()
+    }
   }, []);
 
   useEffect(() => {
