@@ -1,5 +1,5 @@
 // react, react-native, expo
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -10,44 +10,78 @@ import { getDetails, capitalize } from "../../control/pokemonControl";
 import style from "./stylesItem";
 import { useNavigation } from "@react-navigation/native";
 
-export default function Item({ data,favorite }) {
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+export default function Item({ data }) {
   const [img, setImg] = useState();
   const navigation = useNavigation();
+  const [favorite, setFavorite] = useState(false);
+
+  const onRefresh = useCallback(async () => {
+    setFavorite(await isFavorite());
+  }, []);
 
   useEffect(() => {
     async function loadImg() {
       const details = await getDetails(data.url);
       setImg(details.sprites.front_default);
+      setFavorite(await isFavorite());
     }
+
     loadImg();
   });
 
+  async function isFavorite() {
+    let favorites = await getAllFavorite();
+    if (favorites.length == 0) {
+      return false;
+    }
+    const url = data.url.replace('-form', '');
+    return favorites.filter((value) => value === url).length > 0
+  }
+
+  async function getAllFavorite() {
+    let favorites = JSON.parse(await AsyncStorage.getItem("@favorites"));
+    if (favorites == null) {
+      return [];
+    }
+    return favorites;
+  }
+
+  async function saveFavorite() {
+    let favorites = await getAllFavorite();
+    const url = data.url.replace('-form', '');
+    (favorite ? favorites = favorites.filter((value) => value !== url) : favorites.push(url));
+    await AsyncStorage.setItem('@favorites', JSON.stringify(favorites));
+    onRefresh();
+  }
+
   return (
-    <View   style={style.toucheable}>
+    <View style={style.toucheable}>
       <TouchableOpacity
-        style={{width: 300,flexDirection: 'row',alignItems: 'center'}}
+        style={{ width: 300, flexDirection: 'row', alignItems: 'center' }}
         onPress={() => navigation.navigate("Details")}
       >
         <Image source={{ uri: img }} style={style.image}></Image>
-        <View style={{width: '75%'}}>
+        <View style={{ width: '75%' }}>
           <Text style={style.text}>{capitalize(data.name)}</Text>
         </View>
       </TouchableOpacity>
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <ButtonFavorites favorite={favorite}></ButtonFavorites>
-        </View>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ButtonFavorites onPress={saveFavorite} favorite={favorite}></ButtonFavorites>
+      </View>
     </View>
   );
 }
 
-function ButtonFavorites({favorite}) {
+function ButtonFavorites({ favorite, onPress }) {
   return (
-    <View style={{ }}>
+    <View style={{}}>
       <TouchableOpacity
-        onPress={()=> {console.log("favorites")}}
+        onPress={onPress}
         style={style.btnFavorites}
       >
-        <Icon color={favorite?"#FFEC14":"grey"} size={35} name="star" />
+        <Icon color={favorite ? "#FFEC14" : "grey"} size={35} name="star" />
       </TouchableOpacity>
     </View>
   );
