@@ -4,16 +4,17 @@ import { View, Text, Image, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/FontAwesome";
 // control
-import { getDetails, capitalize } from "../../control/pokemonControl";
+import { getDetails, capitalize } from '../../control/pokemonControl'
 
 // style
-import style from "./stylesItem";
-import { useNavigation } from "@react-navigation/native";
+import style from './stylesItem'
+import { useNavigation } from '@react-navigation/native'
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Item({ data }) {
   const [img, setImg] = useState();
+  const [pokemon, setPokemon] = useState()
   const navigation = useNavigation();
   const [favorite, setFavorite] = useState(false);
 
@@ -26,6 +27,7 @@ export default function Item({ data }) {
       const details = await getDetails(data.url);
       setImg(details.sprites.front_default);
       setFavorite(await isFavorite());
+      setPokemon(details)
     }
 
     loadImg();
@@ -60,7 +62,7 @@ export default function Item({ data }) {
     <View style={style.toucheable}>
       <TouchableOpacity
         style={{ width: 300, flexDirection: 'row', alignItems: 'center' }}
-        onPress={() => navigation.navigate("Details")}
+        onPress={() => navigation.navigate('Details', { pokemon })}
       >
         <Image source={{ uri: img }} style={style.image}></Image>
         <View style={{ width: '75%' }}>
@@ -71,7 +73,7 @@ export default function Item({ data }) {
         <ButtonFavorites onPress={saveFavorite} favorite={favorite}></ButtonFavorites>
       </View>
     </View>
-  );
+  )
 }
 
 function ButtonFavorites({ favorite, onPress }) {
@@ -84,5 +86,5 @@ function ButtonFavorites({ favorite, onPress }) {
         <Icon color={favorite ? "#FFEC14" : "grey"} size={35} name="star" />
       </TouchableOpacity>
     </View>
-  );
+  )
 }
