@@ -8,7 +8,7 @@ import { StatusBar } from 'expo-status-bar'
 import FlatListPokemon from '../../components/FlatListPokemon/FlatListPokemon'
 
 // control
-import { getFirstPage } from '../../control/pokemonControl'
+import { getAllFavoriteControl } from '../../control/favoriteControl'
 
 // const
 import { limit } from '../../assets/const/const'
@@ -23,25 +23,13 @@ export default function Favorites() {
   const navigation = useNavigation()
 
   async function load() {
-    let favorites = await getAllFavorite();
-    var vet = favorites.map((value) => { return value })
-    setList(vet);
+    setList( await getAllFavoriteControl());
   }
   useEffect(() => {
     (async function () {
       await load();
     })();
   }, [])
-
-  async function getAllFavorite() {
-    let favorites = JSON.parse(await AsyncStorage.getItem("@favorites"));
-    console.log(favorites)
-    if (favorites == null) {
-      return [];
-    }
-    return favorites;
-  }
-
 
   return (
     <View style={style.base}>

@@ -30,9 +30,12 @@ export default function Home() {
   const navigation = useNavigation()
 
   useEffect(() => {
-    handleFirst()
+    const unsubscribe = navigation.addListener('focus', async () => {      
+      await handleFirst();
+    });
+    return unsubscribe;
   }, [])
-
+  
   async function handleFirst() {
     try {
       const response = await getFirstPage(limit)
@@ -53,7 +56,7 @@ export default function Home() {
     <View style={style.base}>
       <StatusBar hidden />
 
-      <Header onPress={() => { navigation.navigate('Favorites') }} />
+      <Header favorite={true} onPress={() => { navigation.navigate('Favorites') }} />
 
       <SearchBar
         search={search} setSearch={setSearch}

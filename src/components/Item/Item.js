@@ -1,10 +1,11 @@
 // react, react-native, expo
 import React, { useEffect, useState, useCallback } from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet,Inertia } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/FontAwesome";
 // control
 import { getDetails, capitalize } from '../../control/pokemonControl'
+import { isFavoriteControl, saveFavoriteControl } from '../../control/favoriteControl'
 
 // style
 import style from './stylesItem'
@@ -19,9 +20,9 @@ export default function Item({ data, page, loadList }) {
   const [favorite, setFavorite] = useState(false);
 
   const onRefresh = useCallback(async () => {
-    setFavorite(await isFavorite());
+    setFavorite(await isFavoriteControl(data));
     if(page === 'Favorites'){
-      loadList()
+      await loadList()
     }
   }, []);
 
@@ -29,39 +30,18 @@ export default function Item({ data, page, loadList }) {
     async function loadImg() {
       const details = await getDetails(data.url);
       setImg(details.sprites.front_default);
-      setFavorite(await isFavorite());
+      setFavorite(await isFavoriteControl(data));
+      
       setPokemon(details)
     }
 
     loadImg();
-  });
+}, []);
 
-  async function isFavorite() {
-    let favorites = await getAllFavorite();
-    if (favorites.length == 0) {
-      return false;
-    }
-    const url = data.url.replace('-form', '');    
-    return favorites.filter((value) => value.url === url).length > 0
-  }
-
-  async function getAllFavorite() {
-    let favorites = JSON.parse(await AsyncStorage.getItem("@favorites"));
-    if (favorites == null) {
-      return [];
-    }
-    return favorites;
-  }
-
-  async function saveFavorite() {
-    // GAMBIARRA
-    // await AsyncStorage.clear()
-    let favorites = await getAllFavorite();
-    const url = data.url.replace('-form', '');
-    (favorite ? favorites = favorites.filter((value) => value.url !== url) : favorites.push({url:url,name: data.name}));
-    await AsyncStorage.setItem('@favorites', JSON.stringify(favorites));    
-    onRefresh();
-  }
+   async function save() {
+    await saveFavoriteControl(data);
+     onRefresh();
+   }
 
   return (
     <View style={style.toucheable}>
@@ -75,7 +55,7 @@ export default function Item({ data, page, loadList }) {
         </View>
       </TouchableOpacity>
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ButtonFavorites onPress={saveFavorite} favorite={favorite}></ButtonFavorites>
+        <ButtonFavorites onPress={save} favorite={favorite}></ButtonFavorites>
       </View>
     </View>
   )

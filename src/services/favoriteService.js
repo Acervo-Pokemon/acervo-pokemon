@@ -1,51 +1,42 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const listName = 'favorites'
-export async function findAllFavorites() {
-    //Buscando o dado que salvos 
+const name = '@favorites'
+
+export async function isFavorite(data) {
     try {
-        var favorites = [];
-        await AsyncStorage.getItem(listName).then((value) => {
-            if (value == null) {
-                value = favorites;
-                setlistName(favorites);
-            }
-            favorites = value;
-        })
-        return favorites;
+        let favorites = await getAllFavorite();
+        console.log(favorites)
+        if (favorites.length == 0) {
+            return false;
+        }
+        const url = data.url.replace('-form', '');
+        return favorites.filter((value) => value.url === url).length > 0
     } catch (error) {
-        throw (error)
+        throw error
     }
 }
 
-export async function isFavorite(pPokemonUrl) {
+export async function getAllFavorite() {
     try {
-        var favorites = JSON.parse(await findAllFavorites());
-        var len = favorites.filter(pokemonUrl => pokemonUrl === pPokemonUrl).length
-        return len > 0;
-    } catch (error) {
-        throw (error)
-    }
-}
-export async function setFavorite(pPokemonUrl) {
-    try {
-        var favorites = JSON.parse(await findAllFavorites());
-        if (await isFavorite(pPokemonUrl)) {
-            var favorites =  favorites.filter(pokemonUrl => pokemonUrl !== pPokemonUrl);
-            setlistName(favorites);  
-            return;
+        let favorites = JSON.parse(await AsyncStorage.getItem(name));
+        if (favorites == null) {
+            return [];
         }
-        favorites.push(pPokemonUrl);
-        setlistName(favorites);        
-        console.log(favorites)
+        return favorites;
     } catch (error) {
-        throw (error)
+        throw error
     }
 }
-export async function setlistName(pListName) {
+
+export async function saveFavorite(data) {
     try {
-        await AsyncStorage.setItem(listName, JSON.stringify(pListName))
+        //GAMBIARRA
+        //await AsyncStorage.clear()
+        let favorites = await getAllFavorite();
+        const url = data.url.replace('-form', '');
+        (await isFavorite(data) ? favorites = favorites.filter((value) => value.url !== url) : favorites.push({ url: url, name: data.name }));
+        await AsyncStorage.setItem(name, JSON.stringify(favorites));
     } catch (error) {
-        throw (error)
+        throw error
     }
 }
