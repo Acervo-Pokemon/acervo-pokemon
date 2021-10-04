@@ -1,5 +1,5 @@
 // fofoqueira (e.e)
-import { getPaged, navigate, details, getName } from '../services/pokemonService'
+import { getPaged, navigate, getName } from '../services/pokemonService'
 
 export async function getFirstPage(limit) {
   try {
