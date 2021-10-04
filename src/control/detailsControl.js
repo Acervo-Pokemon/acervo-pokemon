@@ -1,3 +1,6 @@
+import { capitalize } from "./pokemonControl"
+
+const validStatTypes = ['hp', 'attack', 'defense', 'speed']
 
 export function handleAbilities(props) {
   let text = ""
@@ -13,15 +16,20 @@ export function handleTypes(props) {
   })
 }
 
-export function handleStats(props) {
-  let validTypes = ['hp', 'attack', 'defense', 'speed']
+export function handleStatsTableTitle(props) {
   props.pokemon.stats.map((item) => {
-    if (validTypes.includes(item.stat.name)) {
-      props.setStats(stats => [...stats,
-      {
-        name: item.stat.name,
-        base_stat: item.base_stat
-      }])
+    if (validStatTypes.includes(item.stat.name)) {
+      props.setStatsTableTitle(title => [...title, capitalize(item.stat.name) + ':'])
     }
   })
+}
+
+export function handleStatsTableData(props) {
+  let bases = []
+  props.pokemon.stats.map((item) => {
+    if (validStatTypes.includes(item.stat.name)) {
+      bases.push([item.base_stat])
+    }
+  })
+  props.setStatsTableData(data => [...data, bases])
 }
