@@ -22,15 +22,17 @@ export default function Favorites() {
 
   const navigation = useNavigation()
 
-  async function load(){
-    let favorites = await getAllFavorite();         
-    var vet = favorites.map((value)=> {return value})
+  async function load() {
+    let favorites = await getAllFavorite();
+    var vet = favorites.map((value) => { return value })
     setList(vet);
-  }  
-  useEffect(() => { 
-    load();
+  }
+  useEffect(() => {
+    (async function () {
+      await load();
+    })();
   }, [])
-  
+
   async function getAllFavorite() {
     let favorites = JSON.parse(await AsyncStorage.getItem("@favorites"));
     console.log(favorites)
@@ -47,8 +49,8 @@ export default function Favorites() {
       {
         list.length > 0 &&
         <View style={style.content}>
-          <View style={{width:'100%',justifyContent: 'flex-end'}}>
-            <FlatListPokemon list={list} page='Favorites' loadList={load}/>
+          <View style={{ width: '100%', justifyContent: 'flex-end' }}>
+            <FlatListPokemon list={list} page='Favorites' loadList={load} />
           </View>
         </View>
       }
