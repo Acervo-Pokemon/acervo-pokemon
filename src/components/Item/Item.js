@@ -1,6 +1,6 @@
 // react, react-native, expo
 import React, { useEffect, useState, useCallback } from "react";
-import { View, Text, Image, StyleSheet,Inertia } from "react-native";
+import { View, Text, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/FontAwesome";
 // control
@@ -11,8 +11,6 @@ import { isFavoriteControl, saveFavoriteControl } from '../../control/favoriteCo
 import style from './stylesItem'
 import { useNavigation } from '@react-navigation/native'
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
 export default function Item({ data, page, loadList }) {
   const [img, setImg] = useState();
   const [pokemon, setPokemon] = useState()
@@ -20,28 +18,32 @@ export default function Item({ data, page, loadList }) {
   const [favorite, setFavorite] = useState(false);
 
   const onRefresh = useCallback(async () => {
-    setFavorite(await isFavoriteControl(data));
-    if(page === 'Favorites'){
+    let valid = await isFavoriteControl(data)
+    setFavorite(valid);
+    if (page === 'Favorites') {
       await loadList()
     }
   }, []);
 
   useEffect(() => {
-    async function loadImg() {
+    async function load(){
       const details = await getDetails(data.url);
       setImg(details.sprites.front_default);
-      setFavorite(await isFavoriteControl(data));
-      
+      let valid = await isFavoriteControl(data)
+      setFavorite(valid);
       setPokemon(details)
     }
+    load();
+    const unsubscribe = navigation.addListener('focus', async () => {
+      load();
+    });
+    return unsubscribe;
+  }, []);
 
-    loadImg();
-}, []);
-
-   async function save() {
+  async function save() {
     await saveFavoriteControl(data);
-     onRefresh();
-   }
+    onRefresh();
+  }
 
   return (
     <View style={style.toucheable}>

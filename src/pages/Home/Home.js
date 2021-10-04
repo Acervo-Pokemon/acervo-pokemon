@@ -30,10 +30,10 @@ export default function Home() {
   const navigation = useNavigation()
 
   useEffect(() => {
-    const unsubscribe = navigation.addListener('focus', async () => {      
+    (async function () {
       await handleFirst();
-    });
-    return unsubscribe;
+    })();
+   
   }, [])
   
   async function handleFirst() {

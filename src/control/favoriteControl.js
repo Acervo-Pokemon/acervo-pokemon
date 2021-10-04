@@ -3,7 +3,6 @@ import { isFavorite, getAllFavorite, saveFavorite } from '../services/favoriteSe
 
 export async function isFavoriteControl(data) {
   try {
-    console.log('isFavoriteControl')
     return await isFavorite(data)
   } catch (error) {
     throw error

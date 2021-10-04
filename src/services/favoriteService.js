@@ -5,7 +5,6 @@ const name = '@favorites'
 export async function isFavorite(data) {
     try {
         let favorites = await getAllFavorite();
-        console.log(favorites)
         if (favorites.length == 0) {
             return false;
         }

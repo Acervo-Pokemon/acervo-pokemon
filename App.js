@@ -45,7 +45,7 @@ export default function App() {
             },
             headerTintColor: `${colors.yellow.color}`,
             headerLeft: () => (
-              <BtnTopLeft color={colors.yellow.color} exit={false} onPress={() => navigation.navigate('Home')} />
+              <BtnTopLeft color={colors.yellow.color} exit={false} onPress={() => navigation.pop()} />
             ),
           })}
         />
@@ -59,7 +59,7 @@ export default function App() {
             },
             headerTintColor: '#FFEC14',
             headerLeft: () => (
-              <BtnTopLeft color='#FFEC14' exit={false} onPress={() => navigation.navigate('Home')} />
+              <BtnTopLeft color='#FFEC14' exit={false} onPress={() => navigation.pop()} />
             ),
           })}
         />
