@@ -36,6 +36,7 @@ export default function Item({ data, page, loadList }) {
     load();
     const unsubscribe = navigation.addListener('focus', async () => {
       load();
+      onRefresh();
     });
     return unsubscribe;
   }, []);
