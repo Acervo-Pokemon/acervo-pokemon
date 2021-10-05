@@ -1,6 +1,6 @@
 <img src="https://avatars.githubusercontent.com/u/91509293?s=200&v=4"/></a>
 
-## Api que serão consumida
+## Api que serão consumidas
 
 ![image](https://user-images.githubusercontent.com/55209015/135701041-2842f3a3-74f3-45c8-8119-66e4b503d348.png)
 
