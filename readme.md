@@ -174,7 +174,7 @@ https://github.com/Viniciusalopes
 ```
 <a href="https://www.linkedin.com/in/viniciusalopes/"><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=Linkedin&logoColor=white"/></a>
 
-## Marcos Jobs
+## Marcos Job
 ```
 https://github.com/jobdev-hub 
 ```
@@ -184,7 +184,7 @@ https://github.com/jobdev-hub
 ```
 https://github.com/marcospaulo-paixao
 ```
-<a href=" "><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=Linkedin&logoColor=white"/></a>
+<a href="https://www.linkedin.com/in/marcos-paulo-paix%C3%A3o-0b486718a/ "><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=Linkedin&logoColor=white"/></a>
 
 ## Lucas Araujo 
 ```
