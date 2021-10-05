@@ -106,6 +106,14 @@ export default function Page2() {
 ```
 yarn add axios
 ```
+## Bibliotecas  
+
+```
+https://www.kindacode.com/article/how-to-implement-tables-in-react-native/
+https://reactnativepaper.com/
+https://docs.expo.dev/versions/latest/sdk/svg/
+```
+
 
 ## Icons
 
@@ -156,4 +164,31 @@ export default function App() {
 }
 ```
 
+## Desenvolvedores 
 
+
+
+## Vinicius Lopes
+```
+https://github.com/Viniciusalopes 
+```
+<a href="https://www.linkedin.com/in/viniciusalopes/"><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=Linkedin&logoColor=white"/></a>
+
+## Marcos Jobs
+```
+https://github.com/jobdev-hub 
+```
+<a href="https://www.linkedin.com/in/marcosjob/"><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=Linkedin&logoColor=white"/></a>
+
+## Marcos Paulo
+```
+https://github.com/marcospaulo-paixao
+```
+<a href=" "><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=Linkedin&logoColor=white"/></a>
+
+## Lucas Araujo 
+```
+https://github.com/lucasDEV20
+
+```
+<a href="https://www.linkedin.com/in/lucas-a-silva-ba60741a2/"><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=flat&logo=Linkedin&logoColor=white"/></a>
