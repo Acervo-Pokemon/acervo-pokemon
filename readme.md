@@ -35,9 +35,8 @@ Mostrar lista de pokémons favoritos (Usar useEffects)
 nome e foto pokémon
 ```
 ## Prototype
-```
 [https://www.figma.com/file/rT5CEumbSMVUbu2CJnFKG0/Untitled?node-id=1%3A3](https://www.figma.com/file/rT5CEumbSMVUbu2CJnFKG0/Untitled?node-id=1%3A3)
-```
+
 ## Estrutura
 
 ![image](https://user-images.githubusercontent.com/55209015/135701330-e15461bb-32d4-47ab-8da9-8a8f0e886584.png)
