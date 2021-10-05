@@ -1,5 +1,8 @@
 <img src="https://avatars.githubusercontent.com/u/91509293?s=200&v=4"/></a>
 
+## Prototype
+[https://www.figma.com/file/rT5CEumbSMVUbu2CJnFKG0/Untitled?node-id=1%3A3](https://www.figma.com/file/rT5CEumbSMVUbu2CJnFKG0/Untitled?node-id=1%3A3)
+
 ## Api que serão consumidas
 
 ![image](https://user-images.githubusercontent.com/55209015/135701041-2842f3a3-74f3-45c8-8119-66e4b503d348.png)
@@ -34,8 +37,6 @@ Obs. listar somente: hp,attack,defense e speed
 Mostrar lista de pokémons favoritos (Usar useEffects)
 nome e foto pokémon
 ```
-## Prototype
-[https://www.figma.com/file/rT5CEumbSMVUbu2CJnFKG0/Untitled?node-id=1%3A3](https://www.figma.com/file/rT5CEumbSMVUbu2CJnFKG0/Untitled?node-id=1%3A3)
 
 ## Estrutura
 
